@@ -1,0 +1,1 @@
+# Funções utilitárias, como para verificar o tiro
