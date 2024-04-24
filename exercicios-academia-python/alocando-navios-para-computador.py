@@ -1,4 +1,3 @@
-from navio-pode-ser-alocado
 import random
 def aloca_navios(m,x):
     n = len(m) 
