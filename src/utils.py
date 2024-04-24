@@ -41,3 +41,51 @@ def posicao_suporta(m,b,l,c,o):
 # o = 'v'
 
 # print(posicao_suporta(m,b,l,c,o))
+import random
+def aloca_navios (m, lnb):
+    n=len(m)
+    l= random.randint(0, n-1)
+    c= random.randint(0, n-1)
+    o= random.choice(['h', 'v'])
+    
+    for nb in lnb:
+        def posicao_suporta(m, nb, l, c, o):
+            if m[l][c]!=' ':
+                return False 
+            if o== 'v':
+                i=1
+                while i<nb:
+                    if (l+i)>= len(m) or m[l+i][c]!=' ':
+                        return False
+                    i+=1
+            if o=='h':
+                j=1
+                while j<nb:
+                    if (c+j)>= len(m[0]) or m[l][c+j]!=' ':
+                        return False
+                    j+=1
+            return True
+        if posicao_suporta(m, nb, l, c, o)== False:
+            while posicao_suporta(m, nb, l, c, o)==False:
+                l= random.randint(0, n-1)
+                c= random.randint(0, n-1)
+                o= random.choice(['h', 'v'])
+                posicao_suporta(m, nb, l, c, o)
+        if posicao_suporta(m, nb, l, c, o)== True:
+            for a in range (nb):
+                if o== 'v':
+                    m[l+a][c]='N'
+                elif o=='h':
+                    m[l][c+a]='N'
+
+
+
+    return m
+
+
+def  foi_derrotado(m):
+    for a in range (len(m)):
+        if 'N' in m[a]:
+            return False
+    
+    return True
