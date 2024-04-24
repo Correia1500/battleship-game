@@ -1,14 +1,12 @@
 def cria_mapa(x):
-    l = []
+    m = []
     for i in range(x):
-        l.append([])
+        m.append([])
         
     for j in range(x):
             for k in range(x):
-                l[j].append(' ')
-    print(l)
-x = 3
-print(cria_mapa(x))
+                m[j].append(' ')
+    return m
 
 def posicao_suporta(m,b,l,c,o):    
     if o == 'v':
@@ -25,24 +23,8 @@ def posicao_suporta(m,b,l,c,o):
                 return False    
     return True
 
-# m = [
-#     [' ', ' ', ' ', 'N'],
-#     [' ', ' ', ' ', 'N'],
-#     ['N', 'N', ' ', 'N'],
-#     [' ', ' ', ' ', ' ']
-# ]
-
-# b = 2
-
-# l = 1
-
-# c = 0
-
-# o = 'v'
-
-# print(posicao_suporta(m,b,l,c,o))
 import random
-def aloca_navios (m, lnb):
+def aloca_navios (m, lnb): #####para usar tem que importar o random
     n=len(m)
     l= random.randint(0, n-1)
     c= random.randint(0, n-1)
@@ -77,15 +59,11 @@ def aloca_navios (m, lnb):
                     m[l+a][c]='N'
                 elif o=='h':
                     m[l][c+a]='N'
-
-
-
     return m
 
 
 def  foi_derrotado(m):
     for a in range (len(m)):
         if 'N' in m[a]:
-            return False
-    
+            return False    
     return True
