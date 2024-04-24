@@ -85,7 +85,7 @@ m = 10 #tamanho do mapa
 pais_comp = random.choice(['Brasil', 'França', 'Austrália', 'Rússia', 'Japão'])
 
 #lista do tamanho das embarcações
-#x =
+x =  []
 cria_mapa(m) ##retorna matriz 10x10
 aloca_navios(m,x) #recebe uma matriz e uma lista, posicionando os navios.
 
@@ -99,7 +99,7 @@ dic_pais = {1: 'Brasil', 2: 'França', 3: 'Austrália', 4: 'Rússia', 5: 'Japão
 
 
 
-nacao = int(input("Qual o número da nação da sua frota? ")) 
+
 
 from constantes import paises
 
