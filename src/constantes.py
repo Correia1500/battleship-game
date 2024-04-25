@@ -9,7 +9,7 @@ CONFIGURACAO = {
 }
 
 # frotas de cada pais
-paises =  {
+PAISES =  {
     'Brasil': {
         'cruzador': 1,
         'torpedeiro': 2,
