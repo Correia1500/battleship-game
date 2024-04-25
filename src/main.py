@@ -32,7 +32,9 @@ else:
 print("Iniciando o Jogo!")
 time.sleep(delay)
 
-print("Computador está alocando os navios de guerra do país Japão...")
+pc= random.choice(['Brasil', 'França', 'Austrália', 'Rússia', 'Japão'])
+
+print(f"Computador está alocando os navios de guerra do país {pc}")
 time.sleep(delay)
 
 print("Computador já está em posição de batalha!")
@@ -76,18 +78,18 @@ print("                                        1 couracado")
 print("                                        1 submarino")
 time.sleep(delay)
 
-cria_mapa(n)
+
 
 mj=( cria_mapa (10))
 mc=( cria_mapa (10))
 
 lnb=[]
 
-lis_blocos (PAISES, CONFIGURACAO, p)
+lis_blocos (PAISES, CONFIGURACAO, pc)
     
 lbc = lis_blocos (PAISES, CONFIGURACAO, pc)
 
-aloca_navios (m, lnb)
+aloca_navios (mc, lnb)
 
 mi = aloca_navios(mc,lbc)
 
