@@ -76,7 +76,7 @@ print("                                        1 couracado")
 print("                                        1 submarino")
 time.sleep(delay)
 
-cria_mapa(n):
+cria_mapa(n)
 
 mj=( cria_mapa (10))
 mc=( cria_mapa (10))
