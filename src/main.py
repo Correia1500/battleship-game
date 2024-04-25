@@ -76,49 +76,38 @@ print("                                        1 couracado")
 print("                                        1 submarino")
 time.sleep(delay)
 
-###########posiciona o computador###########
+cria_mapa(n)
 
-m = 10 #tamanho do mapa
+mj=( cria_mapa (10))
+mc=( cria_mapa (10))
 
-#sorteia um pais para o comp
+lnb=[]
 
-pais_comp = random.choice(['Brasil', 'França', 'Austrália', 'Rússia', 'Japão'])
+lis_blocos (PAISES, CONFIGURACAO, p)
+    
+lbc = lis_blocos (PAISES, CONFIGURACAO, pc)
 
-#lista do tamanho das embarcações
-x =  []
-cria_mapa(m) ##retorna matriz 10x10
-aloca_navios(m,x) #recebe uma matriz e uma lista, posicionando os navios.
+aloca_navios (m, lnb)
 
-dic_pais = {1: 'Brasil', 2: 'França', 3: 'Austrália', 4: 'Rússia', 5: 'Japão'}
-############################################
+mi = aloca_navios(mc,lbc)
 
+print(mi)
 
+print(f'escolha um pais para jogar: {PAISES}')
+pj= input('pais escolhido? ')
 
+fp=[]
 
+for a in PAISES[pj]:
+    for b in range(PAISES[pj][a]):
+        fp.append(a)
 
+print(fp)
 
-
-
-
-
-from constantes import paises
-
-dic_pais = {1: 'Brasil', 2: 'França', 3: 'Austrália', 4: 'Rússia', 5: 'Japão'}
-nacao = int(input("Qual o número da nação da sua frota? ")) 
-dic_pais[nacao]
-print(f'Você escolheu a nação {dic_pais[nacao]}')
-print("Aloque seus Navios e Prepare-se para a Guerra!")
-print(paises[dic_pais[nacao]])
-
-
-m = 10
-print(cria_mapa(m))
-
-aloca_navios(m,paises[dic_pais[nacao[0]]])
-
-
-
-
-
-
-music_thread.join()
+for a in range (len(fp)):
+    print (f'alocar a frota {fp[0]}({CONFIGURACAO[fp[0]]} blocos)')
+    l=input('escolhaa letra:')
+    lln={'A':0, 'B':1, 'C': 2, 'D':3, 'E':4, 'F':5, 'G':6, 'H':7, 'I':8, 'J':9}
+    ln=lln[l]
+    n=input ('escolha o numero:')-1
+    o= input('escolha orientação[v/h]: ')
