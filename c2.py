@@ -1,7 +1,7 @@
 import random
 
 print ('batalha naval')
-pc= random.choice(['Brasil', 'França', 'Austrália', 'Rússia', 'Japão'])
+pc = random.choice(['Brasil', 'França', 'Austrália', 'Rússia', 'Japão'])
 
 
 print (f'computador esta alocando seus navios da frota do pais {pc}')
