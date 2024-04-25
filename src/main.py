@@ -81,7 +81,7 @@ cria_mapa(n)
 mj=( cria_mapa (10))
 mc=( cria_mapa (10))
 
-lnb=[]
+lnb=[] #lista de numero de blocos
 
 lis_blocos (PAISES, CONFIGURACAO, p)
     
@@ -97,14 +97,14 @@ print(f'escolha um pais para jogar: {PAISES}')
 pj= input('pais escolhido? ')
 
 fp=[]
-
+fp =[]
 for a in PAISES[pj]:
     for b in range(PAISES[pj][a]):
         fp.append(a)
 
 print(fp)
 
-for a in range (len(fp)):
+for a in range(len(fp)):
     print (f'alocar a frota {fp[0]}({CONFIGURACAO[fp[0]]} blocos)')
     l=input('escolhaa letra:')
     lln={'A':0, 'B':1, 'C': 2, 'D':3, 'E':4, 'F':5, 'G':6, 'H':7, 'I':8, 'J':9}
