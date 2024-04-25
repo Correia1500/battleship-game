@@ -28,12 +28,18 @@ def posicao_suporta(m,b,l,c,o):
 
 import random
 
-lnb=[]
+
 def lis_blocos (PAISES, CONFIGURACAO, p):
+    lnb=[]
     for a in PAISES[p]:
-        lnb.append(PAISES[p][a]*CONFIGURACAO[a])
+        if PAISES[p]==1:
+            lnb.append(CONFIGURACAO[a])
+        else:
+            for i in range (PAISES[p][a]):
+                lnb.append(CONFIGURACAO[a])
 
     return lnb
+
 
 def aloca_navios (m, lnb):
     n=len(m)
