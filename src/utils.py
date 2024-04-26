@@ -89,16 +89,20 @@ def foi_derrotado(m):
                 return False
     return True
 
+temp = input('Quer pular a animação ?[S/N]')
+temp_maiusc = temp.upper()
 
 def aloca_navios_j (mj, lbj):
     for i in mj:
         print(i)
     for nb in lbj:
-        l=input('escolha letra:') #letra escolhida (coluna)
+        l1=input('escolha letra:') #letra escolhida (coluna)
+        l=l1.upper()
         lln={'A':0, 'B':1, 'C': 2, 'D':3, 'E':4, 'F':5, 'G':6, 'H':7, 'I':8, 'J':9} #lista de letra pra numero
         c=lln[l] #letra escolhida em numero(indice da coluna)
         li=int(input ('escolha o numero:'))-1  #numero escolhido pelo jogador(indice da linha)
-        o= input('escolha orientação[v/h]: ') #orientação escolhida
+        
+        o = input('escolha orientação[v/h]: ') #orientação escolhida
         for k in range (nb):
 
             if o== 'v':
