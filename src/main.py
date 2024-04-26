@@ -23,8 +23,9 @@ print(f"{CORES['red']}|{CORES['reset']} {CORES['green']}Bem-vindos a Batalha Nav
 print(f"{CORES['red']} ===============xxx================={CORES['reset']}")
 time.sleep(delay)
 
-tempo = input('Quer pular a animação ?[S/N]')
-if tempo == "S":
+temp = input('Quer pular a animação ?[S/N]')
+temp_maiusc = temp.upper()
+if temp_maiusc == "S":    
     delay = 0.1
 else:
     delay = 2
@@ -47,12 +48,6 @@ lbc = lis_blocos (PAISES, CONFIGURACAO, pc) #lista do numero de blocos do comput
 
 mi = aloca_navios(mc,lbc) #mapa inicial computador
 
-#print(lbc) #lista que sera usada pela funcao aloca_navios
-
-# for i in mi: #imprime de forma legivel
-#     print(i)
-
-###Imprime os paises para a escolha
 print("1: Brasil")
 print("                                        1 cruzador")
 print("                                        2 torpedeiro")
@@ -89,27 +84,12 @@ print("                                        1 couracado")
 print("                                        1 submarino")
 time.sleep(delay)
 
-
-
 mj=( cria_mapa (10)) #mapa do jogador
 mc=( cria_mapa (10)) #mapa do computador
 
-
-
-
-    
 lbc = lis_blocos (PAISES, CONFIGURACAO, pc) #lista do numero de blocos do computador
 
-
-
 mi = aloca_navios(mc,lbc) #mapa inicial computador
-
-#print (lbc)
-
-
-#for i in mi:
- #   print(i)
-
 
 pj= int(input('Qual o numero da nação da sua frota? ')) #pais do jogador
 
@@ -125,12 +105,7 @@ for a in PAISES[x]:
     for b in range(PAISES[x][a]):
         fp.append(a)
         lbj.append(CONFIGURACAO[a])
-
-
-
-
-
-
+        
 print(aloca_navios_j(mj, lbj))
 
 
