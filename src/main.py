@@ -89,30 +89,48 @@ print("                                        1 couracado")
 print("                                        1 submarino")
 time.sleep(delay)
 
-pj= int(input('Qual o número da sua frota? ')) #pais do jogador
+
+
+mj=( cria_mapa (10)) #mapa do jogador
+mc=( cria_mapa (10)) #mapa do computador
+
+
+
+
+    
+lbc = lis_blocos (PAISES, CONFIGURACAO, pc) #lista do numero de blocos do computador
+
+
+
+mi = aloca_navios(mc,lbc) #mapa inicial computador
+
+#print (lbc)
+
+
+#for i in mi:
+ #   print(i)
+
+
+pj= int(input('Qual o numero da nação da sua frota? ')) #pais do jogador
 
 fp=[] #frota do pais 
 lbj=[] #lista numero de blocos do jogador
 disc_paises = {1:'Brasil',2:'França',3:'Austrália',4:'Rússia',5:'Japão'}
 
-for a in disc_paises.keys():
-    if pj == a:
-        
-        fp.append(PAISES[disc_paises[a.items()])
+x=disc_paises[pj]
 
-print(fp)
+for a in PAISES[x]:
+    print(a)
+    print( PAISES[x][a])
+    for b in range(PAISES[x][a]):
+        fp.append(a)
+        lbj.append(CONFIGURACAO[a])
 
-# for a in PAISES[pj]:
-#     for b in range(PAISES[pj][a]):
-#         fp.append(a)
-#         lbj.append(CONFIGURACAO[a])
 
-#print(fp)
 
-# for a in range (len(fp)):
-#     print (f'alocar a frota {fp[0]}({CONFIGURACAO[fp[0]]} blocos)')
-#     l=input('escolhaa letra:') #letra escolhida (coluna)
-#     lln={'A':0, 'B':1, 'C': 2, 'D':3, 'E':4, 'F':5, 'G':6, 'H':7, 'I':8, 'J':9} #lista de letra pra numero
-#     c=lln[l] #letra escolhida em numero(indice da coluna)
-#     li=int(input ('escolha o numero:'))-1  #numero escolhido pelo jogador(indice da linha)
-#     o= input('escolha orientação[v/h]: ') #orientação escolhida
+
+
+
+print(aloca_navios_j(mj, lbj))
+
+
