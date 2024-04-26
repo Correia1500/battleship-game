@@ -84,7 +84,9 @@ mj=( cria_mapa (10)) #mapa do jogador
 mc=( cria_mapa (10)) #mapa do computador
 
 
-
+print(mj)
+mj[0][0]='N'
+print(mj)
 
     
 lbc = lis_blocos (PAISES, CONFIGURACAO, pc) #lista do numero de blocos do computador
@@ -114,7 +116,7 @@ print(fp)
 
 for a in range (len(fp)):
     print (f'alocar a frota {fp[0]}({CONFIGURACAO[fp[0]]} blocos)')
-    l=input('escolhaa letra:') #letra escolhida (coluna)
+    l=input('escolha letra:') #letra escolhida (coluna)
     lln={'A':0, 'B':1, 'C': 2, 'D':3, 'E':4, 'F':5, 'G':6, 'H':7, 'I':8, 'J':9} #lista de letra pra numero
     c=lln[l] #letra escolhida em numero(indice da coluna)
     li=int(input ('escolha o numero:'))-1  #numero escolhido pelo jogador(indice da linha)

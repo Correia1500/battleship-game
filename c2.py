@@ -122,11 +122,12 @@ print(mi)
 
 print(f'escolha um pais para jogar: {PAISES}')
 pj= input('pais escolhido? ')
-
+lbj=[]
 fp=[]
 for a in PAISES[pj]:
     for b in range(PAISES[pj][a]):
         fp.append(a)
+        lbj.append(CONFIGURACAO[a])
     
 
 print(fp)
