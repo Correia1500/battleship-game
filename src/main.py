@@ -100,12 +100,20 @@ disc_paises = {1:'Brasil',2:'França',3:'Austrália',4:'Rússia',5:'Japão'}
 x=disc_paises[pj]
 
 for a in PAISES[x]:
-    print(a)
-    print( PAISES[x][a])
+
     for b in range(PAISES[x][a]):
         fp.append(a)
         lbj.append(CONFIGURACAO[a])
-        
-print(aloca_navios_j(mj, lbj))
+
+al=input('Gostaria de aleatorizar sua frota?[s/n]')
+
+if al=='n':
+    print(aloca_navios_j(mj, lbj, fp))
+
+elif al== 's':
+    mj= aloca_navios(mj, lbj)
+    for i in mj:
+        print(i)
 
 
+    
