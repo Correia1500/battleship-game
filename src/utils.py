@@ -1,4 +1,4 @@
-
+from constantes import *
 def cria_mapa(x):
     m = []
     for i in range(x):
@@ -89,13 +89,14 @@ def foi_derrotado(m):
                 return False
     return True
 
-temp = input('Quer pular a animação ?[S/N]')
-temp_maiusc = temp.upper()
 
-def aloca_navios_j (mj, lbj):
+
+def aloca_navios_j (mj, lbj, fp):
     for i in mj:
         print(i)
     for nb in lbj:
+        print (f'alocar a frota {fp[0]}({CONFIGURACAO[fp[0]]} blocos)')
+        del fp[0]
         l1=input('escolha letra:') #letra escolhida (coluna)
         l=l1.upper()
         lln={'A':0, 'B':1, 'C': 2, 'D':3, 'E':4, 'F':5, 'G':6, 'H':7, 'I':8, 'J':9} #lista de letra pra numero
@@ -113,7 +114,7 @@ def aloca_navios_j (mj, lbj):
         for i in mj:
             print(i)
 
-    return mj
+    return 'tropas posicionadas'
 
 def imprime_matriz(m):
     n=len(m)
