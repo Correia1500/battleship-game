@@ -118,20 +118,6 @@ elif al== 's':
 foi_derrotado(mj)
 foi_derrotado(mi)
 
-def disparo_jogador(mc):
-    print('Cordenadas de seu disparo: ')
-    l1=input('escolha letra:') #letra escolhida (coluna)
-    l=l1.upper()
-    lln={'A':0, 'B':1, 'C': 2, 'D':3, 'E':4, 'F':5, 'G':6, 'H':7, 'I':8, 'J':9} #lista de letra pra numero
-    c=lln[l] #letra escolhida em numero(indice da coluna)
-    li=int(input ('escolha o numero:'))-1  #numero escolhido pelo jogador(indice da linha)
-
-    if mc[li][c]=='N':
-        mc[li][c]='D'
-    elif mc[li][c]==' ':
-        mc[li][c]='A'
-
-    return mc
 
 while foi_derrotado(mj)== False and foi_derrotado(mc)==False:
     mj=disparo_computador(mj)
