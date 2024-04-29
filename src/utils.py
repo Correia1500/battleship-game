@@ -116,6 +116,28 @@ def aloca_navios_j (mj, lbj, fp):
 
     return 'tropas posicionadas'
 
+def disparo_computador (mj):
+    n=len(mj)
+    l= random.randint(0, n-1)
+    c= random.randint(0, n-1)
+    lnl={0:'A', 1:'B', 2: 'C', 3:'D', 4:'E', 5:'F', 6:'G', 7:'H', 8:'I', 9:'J'} #lista de numero pra letra
+    lm= (l+1) #linha para mostrar ao jogador 
+    cm= lnl[c]#coluna para mostrar ao jogador
+    
+    while mj[l][c] == ' ' or 'N':
+        if mj[l][c]== ' ':
+            mj[l][c]='A'
+            break
+        elif mj[l][c]=='N':
+            mj[l][c]='D'
+            break
+        elif mj[l][c]=='D':
+            l= random.randint(0, n-1)
+            c= random.randint(0, n-1)
+
+    print (f'computador disparou em {cm}{lm}')
+    return mj
+
 def imprime_matriz(m):
     n=len(m)
     print()
