@@ -138,77 +138,41 @@ def disparo_computador (mj):
     print (f'computador disparou em {cm}{lm}')
     return mj
 
-def imprime_matriz(m):
-    n=len(m)
-    print()
-    for l in range (n):
-        texto=f'{l} '
-        for c in range (n):
-            texto+=m[l][c]
-        print(texto)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# import random
-# def aloca_navios (m, lnb): #####para usar tem que importar o random
+# def imprime_matriz(m):
 #     n=len(m)
-#     l= random.randint(0, n-1)
-#     c= random.randint(0, n-1)
-#     o= random.choice(['h', 'v'])
+#     print()
+#     for l in range (n):
+#         texto=f'{l} '
+#         for c in range (n):
+#             texto+=m[l][c]
+#         print(texto)
+
+def imprime_matriz(m, titulo):
+    n = len(m)
+    # Adiciona cores de fundo
+    CORES_BG = {
+        'N': '\u001b[42;1m',  # Fundo verde
+        'A': '\u001b[44;1m',  # Fundo azul
+        'D': '\u001b[41;1m',  # Fundo vermelho
+        'reset': '\u001b[0m'   # Reset
+    }
     
-#     for nb in lnb:
-#         def posicao_suporta(m, nb, l, c, o):
-#             if m[l][c]!=' ':
-#                 return False 
-#             if o== 'v':
-#                 i=1
-#                 while i<nb:
-#                     if (l+i)>= len(m) or m[l+i][c]!=' ':
-#                         return False
-#                     i+=1
-#             if o=='h':
-#                 j=1
-#                 while j<nb:
-#                     if (c+j)>= len(m[0]) or m[l][c+j]!=' ':
-#                         return False
-#                     j+=1
-#             return True
-#         if posicao_suporta(m, nb, l, c, o)== False:
-#             while posicao_suporta(m, nb, l, c, o)==False:
-#                 l= random.randint(0, n-1)
-#                 c= random.randint(0, n-1)
-#                 o= random.choice(['h', 'v'])
-#                 posicao_suporta(m, nb, l, c, o)
-#         if posicao_suporta(m, nb, l, c, o)== True:
-#             for a in range (nb):
-#                 if o== 'v':
-#                     m[l+a][c]='N'
-#                 elif o=='h':
-#                     m[l][c+a]='N'
-#     return m
+    # Imprime o título da matriz
+    print(f"{titulo}")
+    
+    # Imprime a linha de cabeçalho com as letras das colunas
+    cabecalho = '   ' + ' '.join(ALFABETO[:n]) + '  '
+    print(cabecalho)
+    
+    # Imprime cada linha da matriz
+    for i in range(n):
+        linha = f'{i+1:2} '  # Ajusta o espaçamento para números de linha
+        for j in range(n):
+            cor_fundo = CORES_BG.get(m[i][j], '')
+            cor_reset = CORES_BG['reset'] if cor_fundo else ''
+            char = m[i][j] if m[i][j] in CORES_BG else ' '
+            linha += f"{cor_fundo}{char}{cor_reset} "
+        print(linha + f"{CORES_BG['reset']}{i+1:2}")
 
-
-# def  foi_derrotado(m):
-#     for a in range (len(m)):
-#         if 'N' in m[a]:
-#             return False    
-#     return True
+    # Imprime a linha de rodapé com as letras das colunas
+    print(cabecalho)

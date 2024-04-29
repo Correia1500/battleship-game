@@ -87,7 +87,7 @@ time.sleep(delay)
 mj=( cria_mapa (10)) #mapa do jogador
 mc=( cria_mapa (10)) #mapa do computador
 
-lbc = lis_blocos (PAISES, CONFIGURACAO, pc) #lista do numero de blocos do computador
+lbc = lis_blocos(PAISES, CONFIGURACAO, pc) #lista do numero de blocos do computador
 
 mi = aloca_navios(mc,lbc) #mapa inicial computador
 
@@ -100,20 +100,26 @@ disc_paises = {1:'Brasil',2:'França',3:'Austrália',4:'Rússia',5:'Japão'}
 x=disc_paises[pj]
 
 for a in PAISES[x]:
-
     for b in range(PAISES[x][a]):
         fp.append(a)
         lbj.append(CONFIGURACAO[a])
 
+
 al=input('Gostaria de aleatorizar sua frota?[s/n]')
 
-if al=='n':
+if al == 'n':
     print(aloca_navios_j(mj, lbj, fp))
 
-elif al== 's':
+
+
+elif al == 's':
     mj= aloca_navios(mj, lbj)
     for i in mj:
         print(i)
+
+tex = imprime_matriz(mc, 'Computador')+imprime_matriz(mj, 'Jogador')
+
+print(tex)
 
 foi_derrotado(mj)
 foi_derrotado(mi)
@@ -153,3 +159,8 @@ while foi_derrotado(mj)== False and foi_derrotado(mc)==False:
         print('Voce venceu')
         break
 
+
+
+# Uso da função:
+imprime_matriz(mj, "COMPUTADOR - Brasil")
+imprime_matriz(mc, "JOGADOR - França")
