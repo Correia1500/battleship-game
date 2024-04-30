@@ -138,7 +138,52 @@ def disparo_computador (mj):
     print (f'computador disparou em {cm}{lm}')
     return mj
 
-# def imprime_matriz(m):
+def imprime_matriz(m):
+    n=len(m)
+    print()
+    for l in range (n):
+        texto=f'{l} '
+        for c in range (n):
+            texto+=m[l][c]
+        print(texto)
+
+
+def disparo_jogador(mc):
+    print('Cordenadas de seu disparo: ')
+    l1=input('escolha letra:') #letra escolhida (coluna)
+    l=l1.upper()
+    lln={'A':0, 'B':1, 'C': 2, 'D':3, 'E':4, 'F':5, 'G':6, 'H':7, 'I':8, 'J':9} #lista de letra pra numero
+    c=lln[l] #letra escolhida em numero(indice da coluna)
+    li=int(input ('escolha o numero:'))-1  #numero escolhido pelo jogador(indice da linha)
+
+    if mc[li][c]=='N':
+        mc[li][c]='D'
+    elif mc[li][c]==' ':
+        mc[li][c]='A'
+
+    return mc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# import random
+# def aloca_navios (m, lnb): #####para usar tem que importar o random
 #     n=len(m)
 #     print()
 #     for l in range (n):
