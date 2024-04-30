@@ -40,6 +40,22 @@ def lis_blocos (PAISES, CONFIGURACAO, p):
 
     return lnb
 
+def posicao_suporta(m, nb, l, c, o):
+    if m[l][c]!=' ':
+        return False 
+    if o== 'v':
+        i=1
+        while i<nb:
+            if (l+i)>= len(m) or m[l+i][c]!=' ':
+                return False
+            i+=1
+    if o=='h':
+        j=1
+        while j<nb:
+            if (c+j)>= len(m[0]) or m[l][c+j]!=' ':
+                return False
+            j+=1
+    return True
 
 def aloca_navios (m, lnb):
     n=len(m)
@@ -48,22 +64,8 @@ def aloca_navios (m, lnb):
     o= random.choice(['h', 'v'])
     
     for nb in lnb:
-        def posicao_suporta(m, nb, l, c, o):
-            if m[l][c]!=' ':
-                return False 
-            if o== 'v':
-                i=1
-                while i<nb:
-                    if (l+i)>= len(m) or m[l+i][c]!=' ':
-                        return False
-                    i+=1
-            if o=='h':
-                j=1
-                while j<nb:
-                    if (c+j)>= len(m[0]) or m[l][c+j]!=' ':
-                        return False
-                    j+=1
-            return True
+        posicao_suporta(m, nb, l, c, o)
+            
         if posicao_suporta(m, nb, l, c, o)== False:
             while posicao_suporta(m, nb, l, c, o)==False:
                 l= random.randint(0, n-1)
@@ -124,73 +126,59 @@ def disparo_computador (mj):
     lm= (l+1) #linha para mostrar ao jogador 
     cm= lnl[c]#coluna para mostrar ao jogador
     
-    while mj[l][c] == ' ' or 'N':
+    while mj[l][c] == ' ' or mj[l][c] =='N' or mj[l][c] =='D' or mj[l][c] =='A':
         if mj[l][c]== ' ':
             mj[l][c]='A'
             break
         elif mj[l][c]=='N':
             mj[l][c]='D'
             break
-        elif mj[l][c]=='D':
+        elif mj[l][c]=='D'or mj[l][c] =='A':
             l= random.randint(0, n-1)
             c= random.randint(0, n-1)
 
     print (f'computador disparou em {cm}{lm}')
     return mj
 
-def imprime_matriz(m):
-    n=len(m)
-    print()
-    for l in range (n):
-        texto=f'{l} '
-        for c in range (n):
-            texto+=m[l][c]
-        print(texto)
 
 
 def disparo_jogador(mc):
     print('Cordenadas de seu disparo: ')
+    lln={'A':0, 'B':1, 'C': 2, 'D':3, 'E':4, 'F':5, 'G':6, 'H':7, 'I':8, 'J':9} #lista de letra pra numero
     l1=input('escolha letra:') #letra escolhida (coluna)
     l=l1.upper()
-    lln={'A':0, 'B':1, 'C': 2, 'D':3, 'E':4, 'F':5, 'G':6, 'H':7, 'I':8, 'J':9} #lista de letra pra numero
+    while l not in lln:
+        print('coordenada não exite, escolha outra letra')
+        l1=input('escolha letra:')
+        l=l1.upper()
+
+    
     c=lln[l] #letra escolhida em numero(indice da coluna)
     li=int(input ('escolha o numero:'))-1  #numero escolhido pelo jogador(indice da linha)
+    ln=[0,1,2,3,4,5,6,7,8,9,]
+    while li not in ln:
+        print('coordenada não exite, escolha outro número')
+        li=int(input ('escolha o numero:'))-1
 
-    if mc[li][c]=='N':
-        mc[li][c]='D'
-    elif mc[li][c]==' ':
-        mc[li][c]='A'
+    while mc[li][c]=='N' or mc[li][c]==' ' or mc[li][c]=='D' or mc[li][c]=='A':
+
+        if mc[li][c]=='N':
+            mc[li][c]='D'
+            break
+        elif mc[li][c]==' ':
+            mc[li][c]='A'
+            break
+        elif mc[li][c]=='D' or mc[li][c]=='A':
+            print ('coordenada ja foi atacada, ouscolha outra')
+            l1=input('escolha letra:') #letra escolhida (coluna)
+            l=l1.upper()
+            c=lln[l] #letra escolhida em numero(indice da coluna)
+            li=int(input ('escolha o numero:'))-1  #numero escolhido pelo jogador(indice da linha)
+
 
     return mc
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# import random
-# def aloca_navios (m, lnb): #####para usar tem que importar o random
-#     n=len(m)
-#     print()
-#     for l in range (n):
-#         texto=f'{l} '
-#         for c in range (n):
-#             texto+=m[l][c]
-#         print(texto)
 
 def imprime_matriz(m, titulo):
     n = len(m)
@@ -221,3 +209,62 @@ def imprime_matriz(m, titulo):
 
     # Imprime a linha de rodapé com as letras das colunas
     print(cabecalho)
+    return ' '
+    
+
+
+def imprime_matriz_c(m, titulo):
+    n = len(m)
+    # Adiciona cores de fundo
+    CORES_BG = {
+        
+        'A': '\u001b[44;1m',  # Fundo azul
+        'D': '\u001b[41;1m',  # Fundo vermelho
+        'reset': '\u001b[0m'   # Reset
+    }
+    
+    # Imprime o título da matriz
+    print(f"{titulo}")
+    
+    # Imprime a linha de cabeçalho com as letras das colunas
+    cabecalho = '   ' + ' '.join(ALFABETO[:n]) + '  '
+    print(cabecalho)
+    
+    # Imprime cada linha da matriz
+    for i in range(n):
+        linha = f'{i+1:2} '  # Ajusta o espaçamento para números de linha
+        for j in range(n):
+            cor_fundo = CORES_BG.get(m[i][j], '')
+            cor_reset = CORES_BG['reset'] if cor_fundo else ''
+            char = m[i][j] if m[i][j] in CORES_BG else ' '
+            linha += f"{cor_fundo}{char}{cor_reset} "
+        print(linha + f"{CORES_BG['reset']}{i+1:2}")
+
+    # Imprime a linha de rodapé com as letras das colunas
+    print(cabecalho)
+    return ' '
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# import random
+# def aloca_navios (m, lnb): #####para usar tem que importar o random
+#     n=len(m)
+#     print()
+#     for l in range (n):
+#         texto=f'{l} '
+#         for c in range (n):
+#             texto+=m[l][c]
+#         print(texto)
+
