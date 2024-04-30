@@ -129,13 +129,14 @@ while foi_derrotado(mj)== False and foi_derrotado(mc)==False:
     mj=disparo_computador(mj)
     mc=disparo_jogador(mi)
     print('Jogador')
-    for a in mj:
-        print(a)
+    texj = imprime_matriz(mj, 'Jogador')
+
+    print(tex)
 
     print('Computador')
-    for b in mc:
-        print(b)
+    texc = imprime_matriz(mc, 'Computador')
 
+    print(tex)  
     foi_derrotado(mj)
     foi_derrotado(mc)
     if foi_derrotado(mj)== True:
